@@ -1,3 +1,7 @@
+---
+output: html_document
+---
+
 # Data Analysis: Lucas Leiva's Height Compared to LFC and MCFC Squad
 Lucas Leiva played as a center half in the 2016 Capitol One Cup final. How does 
 his height compare to the rest of the players?
