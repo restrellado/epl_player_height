@@ -25,6 +25,7 @@ setwd("~/Documents/github/epl_player_height")
 
 # Read dataset
 df <- read.csv("data-jX2NV.csv", stringsAsFactors = FALSE)
+med <- median(df$Height..m.)
 ```
 
 Clean the dataset and subset for just the LFC and MUFC squads. Add a logical 
@@ -49,9 +50,12 @@ data: [http://www.mirror.co.uk/sport/football/news/tall-short-it-how-premier-450
 # Plot
 ggplot(df2, aes(x = Height, y = reorder(Player, Height), color = Lucas)) +
   geom_point(size = 3) +
-  scale_color_manual(values = c("grey", "hotpink3")) +
+  scale_color_manual(values = c("dark grey", "hotpink3")) +
   guides(color = FALSE) +
-  labs(x = "Height (Meters)", y = "")
+  labs(x = "Height (Meters)", y = "") +
+  geom_vline(xintercept = med, linetype = 3, size = 1.5) +
+  annotate("text", label = "league median height",
+           x = med + .060, y = "Lucas Leiva", size = 4)
 ```
 
 By [RyanEs on Twitter](https://twitter.com/RyanEs)
